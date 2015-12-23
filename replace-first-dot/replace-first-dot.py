@@ -45,7 +45,7 @@ def find_first_dot(line):
             
 for line in open(input_file):
 #    print line
-    outputs.write(line)
+#    outputs.write(line)
     
     pos = find_first_dot(line)
     if pos != -1:
