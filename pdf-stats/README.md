@@ -6,8 +6,8 @@ This program gives the statistics like name, page count, file size of the PDF fi
 
 Run these commands  to install the essential libraries.
 
-
+```
 sudo pip install pypdftk
 sudo pip install humanize
-
+```
 
