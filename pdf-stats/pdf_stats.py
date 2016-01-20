@@ -12,16 +12,25 @@ timestamp  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d-%H-%M-%S')
 
 file_path = "./"
 
+#files = []
+#for filename in glob.glob('*.pdf'):
+#                files.append(filename)
+
+
+
+myDir = "."
 files = []
-for filename in glob.glob('*.pdf'):
-                files.append(filename)
+for root, dirnames, filenames in os.walk(myDir):
+    files.extend(glob.glob(root + "/*.pdf"))
+
 
 
 #dirList=os.listdir(file_path) #list all the files in the directories
-file_write = open('files_details_' + timestamp + '.csv', 'w') #writing no.of pages into a csv file
+file_write = open('pdf_stats_' + timestamp + '.csv', 'w') #writing no.of pages into a csv file
 file_write.write("No~FileName~PageCount~Size~")
 file_write.write("\n")
 file_write.write("\n")
+print "\n\n"
 counter = 1
 for fname in files:
 	data_find = str(counter) + '~' + fname +'~'+ str(pypdftk.get_num_pages(fname)) + '~' + humanize.naturalsize(os.path.getsize(fname)) + '~'  # giving file path with the name of the file
@@ -30,3 +39,5 @@ for fname in files:
 	file_write.write("\n")	
 	counter = counter + 1
 file_write.close()
+
+print "\nWrote the PDF stats to the file " + 'pdf_stats_' + timestamp + '.csv' + '\n\n'
