@@ -10,7 +10,7 @@ timestamp  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d-%H-%M-%S')
                 
 
 license = raw_input("Enter the name of the licese file : ")
-licese = licese.decode('utf-8')
+license = license.decode('utf-8')
 
 files = []
 for filename in glob.glob(u'*.pdf'):
