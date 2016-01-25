@@ -23,9 +23,13 @@ directory_name = "license-added-"+timestamp
 os.mkdir(directory_name)
 
 for pdf in files:
-    command = "pdfunite " + pdf + " "  + license  + " " +  directory_name + "/" + pdf
+
+#adding the license pdf as the second page of each pdf file
+
+    command = "pdftk A=" + pdf +  " B=" + license + "  cat A1 B A2-end output " + directory_name + "/" + pdf
+    #    command = "pdfunite " + pdf + " "  + license  + " " +  directory_name + "/" + pdf
     command = command.encode('utf-8')
-    print command + " \n"
+    print "\n" +command + " \n"
     os.system(command)
 
 
