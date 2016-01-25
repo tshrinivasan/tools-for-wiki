@@ -23,7 +23,7 @@ directory_name = "license-added-"+timestamp
 os.mkdir(directory_name)
 
 for pdf in files:
-    command = "pdfunite " + license +  " " + pdf + " " +  directory_name + "/" + pdf
+    command = "pdfunite " + pdf + " "  + license  + " " +  directory_name + "/" + pdf
     command = command.encode('utf-8')
     print command + " \n"
     os.system(command)
