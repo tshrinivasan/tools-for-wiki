@@ -19,8 +19,8 @@ timestamp  = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d-%H-%M-%S')
 
 wiki_url =  "https://commons.wikimedia.org/w/api.php"
 
-wiki_username = "Tshrinivasan"
-wiki_password = "Vanakkam@1"
+wiki_username = ""
+wiki_password = ""
 
 
 
