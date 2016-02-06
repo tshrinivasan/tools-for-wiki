@@ -129,7 +129,7 @@ def upload_pdf_file(pdf_file):
 [[Category:Books from Tamil Virtual Academy]]
 
 """
-		wikidata = wikidata_part1 + "| Title        = " + filename(pdf_file) + wikidata_part2
+		wikidata = wikidata_part1 + "| Title        = " + filename(pdf_file).replace("_"," ") + wikidata_part2
 
 		page.edit(text=wikidata)
 
