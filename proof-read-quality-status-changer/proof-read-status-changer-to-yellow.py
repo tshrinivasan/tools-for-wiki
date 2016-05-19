@@ -95,11 +95,6 @@ def change_status(pagename):
 	logging.info("Editing " + "https://ta.wikisource.org/wiki/"+page.title)
 	content =  page.getWikiText()
 
-#	print "==========Original Content=========="
-
-#        print content
-#	print "==========end======================"
-	
 	
 	list_of_words = content.split()
 
@@ -115,40 +110,26 @@ def change_status(pagename):
 
 	new_content = content1.replace('pagequality level="1"','pagequality level="3"')
 
-#	print "================= New Content ================"
-#	print new_content
 
-#	print "==========end============"
-	page.edit(text = new_content,summary = "changed page quality status")
+	page.edit(text = new_content,summary = "[[பகுப்பு:மெய்ப்புப் பார்க்கப்பட்டவை]]")
 	
-#	print page.getWikiText()
+
 
         logging.info("Changed level 1 to 3")
         
 book = open("book-names.txt","r")
 
-#change_status("Chandrahari.pdf/1")
-
-#sys.exit()
-
-#page = wikitools.Page(wiki,"Page:Sandbox", followRedir=True)
-#print page
-
-#page.edit(text = "test",summary = "changed page quality")
-
-#print page.getWikiText()
-
-#sys.exit()
+counter = 1
 
 for line in book:
-#	print line
+	
+	logging.info("Book No = " + str(counter)
+	
 	filename = line.split("File:")[1]
-#	print filename
-        change_status(filename.strip()+"/1")
-        
-#        change_status("Chandrahari.pdf/1")
-#        sys.exit()
 
+        change_status(filename.strip()+"/1")
+
+	counter = counter + 1
 
 
 logging.info("Completed!")
