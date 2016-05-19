@@ -130,6 +130,8 @@ for line in book:
         change_status(filename.strip()+"/2")
 
 	counter = counter + 1
+	
+	time.sleep(15)
 
 
 logging.info("Completed!")
