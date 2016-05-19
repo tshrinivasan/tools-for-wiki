@@ -123,7 +123,7 @@ counter = 1
 
 for line in book:
 	
-	logging.info("Book No = " + str(counter)
+	logging.info("Book No = " + str(counter))
 	
 	filename = line.split("File:")[1]
 
