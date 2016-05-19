@@ -152,7 +152,7 @@ for line in book:
         
         counter = counter + 1
         
-
+        time.sleep(3)
 
 
 logging.info("Completed!")
