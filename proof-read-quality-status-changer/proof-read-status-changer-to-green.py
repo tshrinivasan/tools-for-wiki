@@ -111,7 +111,7 @@ def change_status(pagename):
 	new_content = content1.replace('pagequality level="3"','pagequality level="4"')
 
 
-	page.edit(text = new_content,summary = "[[பகுப்பு:மெய்ப்புப் பார்க்கப்பட்டவை]]")
+	page.edit(text = new_content,summary = "[[பகுப்பு:சரிபார்க்கப்பட்டவை]]")
 	
 
 
