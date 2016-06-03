@@ -1,64 +1,4 @@
 File:1806 (ந. சஞ்சீவி).pdf
-File:A Bibliography on Thirukkural.pdf
-File:ABC of Library Science.pdf
-File:Advance Study of Tamil Prosody.pdf
-File:Amaladitya-An Adaptation of Shakespear.pdf
-File:An Introduction To The Philosophy Of Ramalingaswami.pdf
-File:Ancient Temples Of Tamilnadu.pdf
-File:As We Sow-So We Reap.pdf
-File:Blessed In A Wife.pdf
-File:Brahmin Versus Non-brahmin.pdf
-File:Bricks Between And At Any Cost.pdf
-File:Chandrahari.pdf
-File:Cilappadikaram The Earliest Tamil Epic.pdf
-File:Collected Papers.pdf
-File:Dikshithar Stories.pdf
-File:Essays on Library Science.pdf
-File:G. K. in Sports and Games.pdf
-File:Gleaning Of Tamil Literature.pdf
-File:Harischandra.pdf
-File:History Of Tamil Lexicography.pdf
-File:History Of the Tamil Prose Literature.pdf
-File:How To Break Ties in Sports and Games.pdf
-File:Humorous Essays.pdf
-File:Introduction to Tamil Poetry.pdf
-File:Lord Buddha.pdf
-File:Mixture.pdf
-File:Over Forty Years Before The Footlights-1.pdf
-File:Over Forty Years Before The Footlights-2.pdf
-File:Papers in Tamil Literature.pdf
-File:Pari kathai-with commentary.pdf
-File:PHYSICAL FITNESS and HEALTH.pdf
-File:Quotations on Sports and Games.pdf
-File:Sahadeva's Stratagem.pdf
-File:Saiva Nanneri.pdf
-File:Sarangadara.pdf
-File:Sati Sakti.pdf
-File:Sati Sulochana.pdf
-File:Siruthondar.pdf
-File:Siva Shrines In India and Beyond Part-2.pdf
-File:Siva Shrines In India and Beyond Part-3.pdf
-File:Siva Shrines In India and Beyond Part-4.pdf
-File:Siva Shrines in India and Beyond Part-5.pdf
-File:Siva Temple Architecture etc..pdf
-File:Status of Women in Tamilnadu during the Sangam age .pdf
-File:Studies in Tamil folk literature.pdf
-File:Studies in The Mosses of South India.pdf
-File:Subramanya Shrines.pdf
-File:Suradha-s Poetry-English version.pdf
-File:Tamil varalaru.pdf
-File:The Fair Ghost.pdf
-File:The Good Fairy.pdf
-File:The Good Sister.pdf
-File:The Gypsy Girl And Vaikunta Vaithiyar.pdf
-File:The Historical Study Of The Thevaram Hymns.pdf
-File:The Idle Wife.pdf
-File:The Knavery Of Kalappa.pdf
-File:The story of saiva saints.pdf
-File:The surgeon general's prescription and vichu's wife.pdf
-File:The Tamilian system of marriage.pdf
-File:The Wedding of Valli.pdf
-File:Thus spake-The Buddha-sayings of Buddha.pdf
 File:அ. மருதகாசி-பாடல்கள்.pdf
 File:அ.ச.ஞா.பதில்கள்.pdf
 File:அகத்திணைக் கொள்கைகள்.pdf
@@ -469,9 +409,9 @@ File:ஓர் விருந்து அல்லது சபாபதி.pd
 File:ஓலைக் கிளி.pdf
 File:ஔவையார் கதை.pdf
 File:ஔவையார்-தனிப்பாடல்கள்.pdf
-File:க. அயோத்திதாஸப் பண்டிதர் சிந்தனைகள்-தொகுதி இரண்டு.pdf
-File:க. அயோத்திதாஸப் பண்டிதர் சிந்தனைகள்-தொகுதி நான்கு.pdf
-File:க.அயோத்திதாஸப் பண்டிதர் சிந்தனைகள்-தொகுதி ஒன்று.pdf
+File:க.அயோத்திதாஸப் பண்டிதர் சிந்தனைகள்-தொகுதி இரண்டு.pdf
+File:க.அயோத்திதாஸப் பண்டிதர் சிந்தனைகள்-தொகுதி நான்கு.pdf
+File:க.அயோத்திதாஸப் பண்டிதர் சிந்தனைகள்-1.pdf
 File:கங்கா.pdf
 File:கங்கைக் கரையில் காவிரித் தமிழ்.pdf
 File:கஞ்சியிலும் இன்பம்.pdf
