@@ -9,3 +9,9 @@ Now, the pages with size below 1000 bytes are written on the file.
 
 If you want to change the size, change in line 80 in the file find-page-size.py
 
+
+
+Todo:
+
+Add support for other indic languages.
+
