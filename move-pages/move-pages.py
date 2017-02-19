@@ -27,6 +27,21 @@ new_book_name = config.get('settings','new_book_name')
 start_page_number = config.get('settings','start_page_number')
 end_page_number = config.get('settings', 'end_page_number')
 
+indic_numbers = ConfigParser.ConfigParser()
+indic_numbers.read('indian_numerals.ini')
+
+
+
+def convert_to_indic(language,number):
+        if language in ['bn','or','gu','te','ml','kn','sa','as','mr']:
+                number_string = ''
+                for num in list(str(number)):
+                        number_string = number_string + indic_numbers.get(language,num)
+                return number_string
+        else:
+                return number
+
+
 
 
 
@@ -97,9 +112,9 @@ def move_page(original_pagename, new_pagename):
 
 	page = wikitools.Page(wiki, original_pagename, followRedir=True)
         
-	logging.info("Editing " + "https://ta.wikisource.org/wiki/"+page.title)
+	logging.info("Editing " + "https://" + wikisource_language + ".wikisource.org/wiki/"+page.title)
 
-	page.move( new_pagename, reason = u"விக்கிக்கு ஏற்ப பெயர் மாற்றப் பட்டது", noredirect=True)
+	page.move( new_pagename, reason = "Moved page", noredirect=True)
 
 #	page.edit(text = new_content,summary = "உரிமப்பக்கத்திற்குரிய தரவைப் பதிவேற்றியது")
 	
@@ -115,8 +130,10 @@ counter = 1
 
 for number in range(int(start_page_number), int(end_page_number) +1 ):
 
-	original_name = original_book_name + "/" + str(number)
-	new_name = new_book_name + "/" + str(number)
+	indic_page_number =  str(convert_to_indic(wikisource_language_code, number))
+
+	original_name = original_book_name + "/" + str(indic_page_number)
+	new_name = new_book_name + "/" + str(indic_page_number)
 
 	logging.info("Moving page " + str(counter))
 	move_page(original_name, new_name)
@@ -124,7 +141,7 @@ for number in range(int(start_page_number), int(end_page_number) +1 ):
 	
         counter = counter + 1
         
-	sys.exit()
+#	sys.exit()
 
         time.sleep(8)
 
