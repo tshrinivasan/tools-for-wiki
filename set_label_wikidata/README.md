@@ -1,11 +1,11 @@
-==INSTALL==
+#INSTALL#
 
 sudo pip install wikidataintegrator
 
 run the above command to install the python module wikidataintegrator.
 
 
-==Readme==
+#Details#
 
 The script set_label_in_wikidata.py is used to set the label in desired language for the items defined in a CSV file.
 
