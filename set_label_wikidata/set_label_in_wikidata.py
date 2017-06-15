@@ -20,7 +20,7 @@ def set_new_label(item_id,label,language_code):
 
 	wikidata_item.set_label(label, lang=language_code)
 
-	wikidata_item.write(login_session)
+	wikidata_item.write(login_session,edit_summary='added label in ' + language_code + " language")
 
 	print "Wrote the new label. check the link " + 'https://www.wikidata.org/wiki/' + item_id + "\n"
 
