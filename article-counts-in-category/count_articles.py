@@ -7,12 +7,18 @@ import csv
 import time
 import os
 from time import gmtime, strftime
+from datetime import datetime
+from pytz import timezone    
+
+ist = timezone('Asia/Kolkata')
+sa_time = datetime.now(ist)
+timestamp =  sa_time.strftime('%Y-%m-%d_%H-%M-%S')
 
 site = wiki.Wiki("https://ta.wikipedia.org/w/api.php") 
 #site.login("username", "password")
 # Create object for "Category:Foo"
 
-timestamp = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+
 
 def get_count(district):
 
