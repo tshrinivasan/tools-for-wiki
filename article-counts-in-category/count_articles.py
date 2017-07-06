@@ -25,15 +25,15 @@ def get_count(district):
 	return counter
 
 
-total_time = open('csv-to-html-table/data/time_total.html','w')
+total_time = open('./csv-to-html-table/data/time_total.html','w')
 
 total_time.write('<link href="../css/bootstrap.min.css" rel="stylesheet">\n')
 total_time.write("<p align='right'> இந்தப் பட்டியல் 10 நிமிடத்திற்கு ஒரு முறை இற்றைப்படுத்தப்படுகிறது. கடைசி இற்றை நேரம்   " + timestamp + "<br/>")
 total_time.close()
 
-districts = open('districts.txt','r')
+districts = open('./districts.txt','r')
 
-articles_count = open("csv-to-html-table/data/articles_count.csv",'w')
+articles_count = open("./csv-to-html-table/data/articles_count.csv",'w')
 articles_count.write("மாவட்டம் , கட்டுரைகள்" +"\n")
 
 for district in districts:
