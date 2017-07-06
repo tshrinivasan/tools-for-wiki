@@ -9,7 +9,7 @@ import os
 from time import gmtime, strftime
 
 site = wiki.Wiki("https://ta.wikipedia.org/w/api.php") 
-site.login("TshrinivasanBOT", "Palagai@1")
+#site.login("username", "password")
 # Create object for "Category:Foo"
 
 timestamp = strftime("%Y-%m-%d %H:%M:%S", gmtime())
