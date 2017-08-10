@@ -130,8 +130,8 @@ counter = 1
 
 for number in range(int(end_page_number), int(start_page_number) -1, -1 ):
 
-	indic_page_number =  str(convert_to_indic(wikisource_language_code, number))
-        incremented_indic_page_number =  str(convert_to_indic(wikisource_language_code, int(number) + int(increment_order)))
+	indic_page_number =  str(convert_to_indic(wikisource_language, number))
+        incremented_indic_page_number =  str(convert_to_indic(wikisource_language, int(number) + int(increment_order)))
 
 	original_name = book_name + "/" + str(indic_page_number)
 	new_name = book_name + "/" + str(incremented_indic_page_number)
