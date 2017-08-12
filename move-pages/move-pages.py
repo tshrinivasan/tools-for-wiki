@@ -130,7 +130,7 @@ counter = 1
 
 for number in range(int(start_page_number), int(end_page_number) +1 ):
 
-	indic_page_number =  str(convert_to_indic(wikisource_language_code, number))
+	indic_page_number =  str(convert_to_indic(wikisource_language, number))
 
 	original_name = original_book_name + "/" + str(indic_page_number)
 	new_name = new_book_name + "/" + str(indic_page_number)
