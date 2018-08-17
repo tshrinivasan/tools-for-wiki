@@ -8,8 +8,8 @@ import time
 
 input_file = "data.csv"
 language_code = 'ta'
-wikidata_username = 'Tshrinivasan'
-wikidata_password = 'Vanakkam@1'
+wikidata_username = 'USERNAME'
+wikidata_password = 'PASSWORD'
 
 login_session = wdi_login.WDLogin(user=wikidata_username, pwd=wikidata_password)
 
