@@ -5,47 +5,43 @@ import sys
 import configparser
 import datetime
 import glob
-from wikitools import wiki, api,page
 import csv
+import requests
+
+S = requests.Session()
 
 config = configparser.ConfigParser()
 config.read("config.ini")
 
 wikisite_language = config.get('settings','wikisite_language')
 
-wiki_url = "https://" + wikisite_language + ".wikipedia.org/w/api.php"
+wikisite = config.get('settings','wikisite')
+
+wiki_url = "https://" + wikisite_language + "." + wikisite + ".org/w/api.php"
 
 page_list_file_name = config.get('settings','page_list_file_name')
 
-#wiki = wiki.Wiki(wiki_url)
-#print(wiki)
-
-
-
-
-
-
-def find_page_size(pagename):
-    from wikitools import wiki, api,page
-
-    page = page.Page(wiki, pagename, followRedir=True)
-    print("Reading " + "https://" + wikisite_language + ".wikipedia.org/wiki/"+page.title)
-    metadata =  page.getHistory(content=False)
-    size =  metadata[0]['size']
-    return(size)
-
-
-
-import csv, subprocess, time, pywikibot, re
-
-
-
 
 data_file = open(page_list_file_name,'r+').readlines()
-site = pywikibot.Site('en', 'wikipedia')
+
+out_file = open("page_with_size.csv","a")
 
 for line in data_file:
-    print(line)
-    
-    page = pywikibot.Page(site, line)
-    print ((page.getVersionHistory()[0]['size']))
+
+    PARAMS = {
+    "action": "query",
+    "format": "json",
+    "titles": line.strip(),
+    "prop": "info",
+    "inprop": "url|talkid"
+    }
+
+    R = S.get(url=wiki_url, params=PARAMS)
+    DATA = R.json()
+
+    PAGES = DATA["query"]["pages"]
+    for k, v in PAGES.items():
+        print(v["title"] + " has " + str(v["length"]) + " bytes.")
+
+        out_file.write(v["title"] + "~" + str(v["length"]) + "\n")
+
