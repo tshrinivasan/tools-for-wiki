@@ -11,3 +11,7 @@ sudo pip3 install pypdftk
 sudo pip3 install humanize
 ```
 
+run as below
+```
+python3 pdf_stats.py
+```
