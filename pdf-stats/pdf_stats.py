@@ -1,8 +1,8 @@
-import pypdftk #install pypdftk with 'sudo pip install pypdftk'
+import pypdftk #install pypdftk with 'sudo pip3 install pypdftk'
 import os
 import re
 import csv
-import humanize #install humanize with 'sudo pip install humanize'
+import humanize #install humanize with 'sudo pip3 install humanize'
 import time
 import datetime
 import glob
@@ -34,10 +34,10 @@ print "\n\n"
 counter = 1
 for fname in files:
 	data_find = str(counter) + '~' + fname +'~'+ str(pypdftk.get_num_pages(fname)) + '~' + humanize.naturalsize(os.path.getsize(fname)) + '~'  # giving file path with the name of the file
-	print data_find # test with printing the data
+	print(data_find) # test with printing the data
 	file_write.write(str(data_find)) 
 	file_write.write("\n")	
 	counter = counter + 1
 file_write.close()
 
-print "\nWrote the PDF stats to the file " + 'pdf_stats_' + timestamp + '.csv' + '\n\n'
+print("\nWrote the PDF stats to the file " + 'pdf_stats_' + timestamp + '.csv' + '\n\n')
