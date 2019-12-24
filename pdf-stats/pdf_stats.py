@@ -30,7 +30,7 @@ file_write = open('pdf_stats_' + timestamp + '.csv', 'w') #writing no.of pages i
 file_write.write("No~FileName~PageCount~Size~")
 file_write.write("\n")
 file_write.write("\n")
-print "\n\n"
+print("\n\n")
 counter = 1
 for fname in files:
 	data_find = str(counter) + '~' + fname +'~'+ str(pypdftk.get_num_pages(fname)) + '~' + humanize.naturalsize(os.path.getsize(fname)) + '~'  # giving file path with the name of the file
