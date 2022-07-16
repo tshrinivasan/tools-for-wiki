@@ -2,6 +2,8 @@
 
 from pywikibot import Site
 from pywikibot import FilePage
+from pywikibot import logging as pwblogging
+import logging
 import stat
 import sys
 import os
@@ -18,21 +20,25 @@ class Client:
         self.site.login(user=self.username)
         print('id : %d'%(self.site.userinfo['id']))
         print('name : %s'%(self.site.userinfo['name']))
+        stderrlog = logging.StreamHandler()
+        logger = logging.getLogger('pywiki')
+        logger.addHandler(stderrlog)
+        logger.setLevel(pwblogging.VERBOSE)
 
     def upload(self, localfilename):
         basefilename = os.path.basename(localfilename)
         pagename='File:%s'%(basefilename.replace(' ', '_'))
         page = FilePage(self.site, pagename)
-        wikitext0 = """
+        wikitext0 = '''
 =={{int:filedesc}}==
 {{Book
 | Author       = 
 | Editor       = 
 | Translator   = 
 | Illustrator  = 
-"""
+'''
         title = "| Title        = " + basefilename.split('.')[-2]
-        wikitext1 = """
+        wikitext1 = '''
 | Subtitle     = 
 | Series title = 
 | Volume       = 
@@ -58,9 +64,10 @@ class Client:
 [[Category:Books in Tamil]]
 [[Category:PDF files in Tamil with CC0 1.0 license]]
 [[Category:Books from Tamil Virtual Academy]]
-"""
+'''
         wikitext = wikitext0 + title + wikitext1
-        if not page.upload(localfilename, comment=basefilename, text=wikitext):
+        print('uploading %s'%(localfilename))
+        if not page.upload(localfilename, comment=basefilename, text=wikitext, chunk_size=99*1024*1024, asynchronous=True, ignore_warnings=True):
             print("failed to upload %s"%(localfilename))
             return False
         else:
