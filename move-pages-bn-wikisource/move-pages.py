@@ -114,7 +114,7 @@ def move_page(original_pagename, new_pagename):
         
 	logging.info("Editing " + "https://" + wikisource_language + ".wikisource.org/wiki/"+page.title)
 
-	page.move( new_pagename, reason = "Moved page", noredirect=True)
+	page.move( new_pagename, reason = "পাতা স্থানান্তর করা হয়েছে", noredirect=True)
 
 #	page.edit(text = new_content,summary = "உரிமப்பக்கத்திற்குரிய தரவைப் பதிவேற்றியது")
 	
