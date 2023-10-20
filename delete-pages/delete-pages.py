@@ -26,7 +26,19 @@ book_name = config.get('settings','book_name')
 start_page_number = config.get('settings','start_page_number')
 end_page_number = config.get('settings', 'end_page_number')
 
+indic_numbers = ConfigParser.ConfigParser()
+indic_numbers.read('indian_numerals.ini')
 
+
+
+def convert_to_indic(language,number):
+        if language in ['bn','or','gu','te','ml','kn','sa','as','mr']:
+                number_string = ''
+                for num in list(str(number)):
+                        number_string = number_string + indic_numbers.get(language,num)
+                return number_string
+        else:
+return number
 
 
 logging.basicConfig(level=logging.INFO)
@@ -96,9 +108,9 @@ def delete_page(pagename):
 
 	page = wikitools.Page(wiki, pagename, followRedir=True)
         
-	logging.info("deleting " + "https://ta.wikisource.org/wiki/"+page.title)
+	logging.info("deleting " + "https://" + wikisource_language + ".wikisource.org/wiki/"+page.title)
 
-	page.delete(reason=u"தரவுப் பிழைக்காக இந்தப் பக்கம் நீக்கப்பட்டது")
+	page.delete(reason="Deleted page")
 
 
         logging.info("deleted " +  pagename  )
@@ -110,8 +122,8 @@ def delete_page(pagename):
 counter = 1
 
 for number in range(int(start_page_number), int(end_page_number) +1 ):
-
-	page_name = book_name + "/" + str(number)
+        indic_page_number = str(convert_to_indic(wikisource_language, number))
+	page_name = book_name + "/" + str(indic_page_number)
 
 
 	logging.info("Deleting page " + str(counter))
