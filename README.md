@@ -5,15 +5,12 @@
 ### setup
 
 0. clone this repository
-
-1. run following command from the cloned git directory
+1. get `venvshell` by running this command
 ```
-DEV=1 ./bootstrap/bootstrap poetry shell
+./scripts/venvshell
 ```
-
-2. run pdf-djvu-uploader-commons-v2.py with username and sourcedir
+2. run pdf-djvu-uploader-commons-v2.py with username and sourcedir (replace `mohan43u` with your wikimedia account's `username`)
 ```
 ./pdf-upload-commons/pdf-djvu-uploader-commons-v2.py mohan43u /path/to/sourcedir/where/pdf/files/available
 ```
-
 3. once finished, the python code will move uploaded pdf/djvu file to /path/to/sourcedir/where/pdf/files/available/uploaded directory

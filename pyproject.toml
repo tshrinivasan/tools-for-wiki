@@ -1,12 +1,10 @@
-[tool.poetry]
+[project]
 name = 'tools-for-wiki'
-version = '0.0.1'
 description = 'tools for wiki'
-authors = []
+version = '0.0.1'
+dependencies = [
+"pywikibot"
+]
 
-[tool.poetry.dependencies]
-python = "^3.8"
-
-[tool.poetry.group.dev.dependencies]
-pywikibot = "^7.4.0"
-mwparserfromhell = "^0.6.4"
+[tool.setuptools]
+packages = []
