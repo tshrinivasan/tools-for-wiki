@@ -1,0 +1,1 @@
+Read the instructions from [here](../README.md#pdf-crop-scale)
