@@ -3,7 +3,9 @@ name = 'tools-for-wiki'
 description = 'tools for wiki'
 version = '0.0.1'
 dependencies = [
-"pywikibot"
+"pyright",
+"pywikibot",
+"pypdf"
 ]
 
 [tool.setuptools]

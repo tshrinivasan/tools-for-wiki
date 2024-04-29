@@ -1,5 +1,10 @@
 #!/bin/bash
 
+cleanup() {
+    while popd &>/dev/null; do dirs; done
+}
+trap cleanup EXIT
+
 python="python3"
 if [[ -n "${USEPYTHON}" ]]; then
     python="${USEPYTHON}"
@@ -21,7 +26,9 @@ export PATH="${PYTHONUSERBASE}/bin:${PATH}"
     mkdir -p "${PYTHONUSERBASE}"
     "${python}" -m venv "${MYVENV}"
     source "${MYVENV}"/bin/activate
+    pushd "${basedir}"
     pip install .
+    popd
     deactivate
 }
 source "${MYVENV}"/bin/activate
