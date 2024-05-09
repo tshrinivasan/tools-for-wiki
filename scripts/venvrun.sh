@@ -32,4 +32,5 @@ export PATH="${PYTHONUSERBASE}/bin:${PATH}"
     deactivate
 }
 source "${MYVENV}"/bin/activate
+[[ "${#}" -gt 0 ]] && exec "${@}"
 exec bash --noprofile --norc
