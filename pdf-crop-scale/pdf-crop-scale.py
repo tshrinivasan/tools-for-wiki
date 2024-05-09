@@ -32,7 +32,10 @@ class PdfCrop:
         page.scale_to(papertype.width, papertype.height)
 
 
-    def filter_pages(self, spages: list[PageObject], pagenumsv: list[list[int]]) -> list[PageObject]:
+    def filter_pages(self, spages: list[PageObject], pagenumsv: list[list[int]]|None) -> list[PageObject]:
+        if pagenumsv is None:
+            return spages
+
         pages: list[PageObject] = []
         for pagenums in pagenumsv:
             if len(pagenums) <= 0:
@@ -48,7 +51,7 @@ class PdfCrop:
         return pages
 
 
-    def crop(self, pagenumsv: list[list[int]], crop: list[float]):
+    def crop(self, pagenumsv: list[list[int]]|None, crop: list[float]):
         if len(crop) >= 4:
             pages = self.filter_pages(self.source.pages, pagenumsv)
             cropdelta: RectangleObject = RectangleObject((crop[0], crop[1], crop[2], crop[3]))
@@ -56,7 +59,7 @@ class PdfCrop:
                 self.crop_page(page, cropdelta)
 
 
-    def scale(self, pagenumsv: list[list[int]], papertype: Dimensions):
+    def scale(self, pagenumsv: list[list[int]]|None, papertype: Dimensions):
         pages = self.filter_pages(self.source.pages, pagenumsv)
         for page in pages:
             self.scale_page(page, papertype)
@@ -98,7 +101,8 @@ def get_pagenums(pagenums_str: str) -> list[list[int]]:
                 pagenum: int = int(pagenumstr)
                 pagenumv.append(pagenum)
             except:
-                pass
+                if ":" in pagenumsstr:
+                    pagenumv.append(0)
 
         pagenumsv.append(pagenumv)
 
@@ -121,7 +125,8 @@ def get_papersize(papersize_str: str) -> Dimensions:
             pass
 
         if width <= 0 or height <= 0:
-            stderr.write("unknown papersize " + papersize_str + " defaulting to A4")
+            stderr.write("unknown papersize " + papersize_str + " defaulting to A4\n")
+            stderr.flush()
             papersize = PaperSize.A4
             return papersize
 
@@ -150,7 +155,8 @@ def get_papersize(papersize_str: str) -> Dimensions:
         case "C4":
             papersize = PaperSize.C4
         case _:
-            stderr.write("unknown papersize " + papersize_str + " defaulting to A4")
+            stderr.write("unknown papersize " + papersize_str + " defaulting to A4\n")
+            stderr.flush()
             papersize = PaperSize.A4
 
     return papersize
@@ -173,20 +179,22 @@ def main():
         stderr.write("moving top margin -105pts towards bottom margin ")
         stderr.write("then scale the output to A4 papersize and save the result pdf as test.out.pdf\n")
         stderr.write("\n")
-        stderr.write("[example]\n\t$ " + argv[0] + " test.pdf test.out.pdf '0, 1, 7:8' '+150,+130,-150,-105' A3\n")
+        stderr.write("[example]\n\t$ " + argv[0] + " test.pdf test.out.pdf '0, 1, 7:8, 9:' '+150,+130,-150,-105' A3\n")
         stderr.write("\tthis commandline will crop only pages with ")
-        stderr.write("page-index 0(1st page), page-index 1(2nd page) and page-index 7(8th page) of test.pdf by ")
+        stderr.write("page-index 0(1st page), page-index 1(2nd page), page-index 7(8th page) ")
+        stderr.write("and from page-index 9(10th page) to rest of the book of test.pdf by ")
         stderr.write("moving the left margin +150pts towards right margin, ")
         stderr.write("moving bottom margin +130pts towards top margin, ")
         stderr.write("moving right margin -150pts towards left margin, ")
         stderr.write("moving top margin -105pts towards bottom margin ")
         stderr.write("then scale the output to A3 papersize and save the result pdf as test.out.pdf\n")
+        stderr.flush()
         exit(1)
 
     pagenumsv: list[list[int]] = get_pagenums(argv[3])
     pc: PdfCrop = PdfCrop(argv[1], argv[2])
     pc.crop(pagenumsv, get_crop(argv[4]))
-    pc.scale(pagenumsv, get_papersize(argv[5]))
+    pc.scale(None, get_papersize(argv[5]))
     pc.write()
 
 
