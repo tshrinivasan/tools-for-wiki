@@ -194,7 +194,7 @@ def main():
     pagenumsv: list[list[int]] = get_pagenums(argv[3])
     pc: PdfCrop = PdfCrop(argv[1], argv[2])
     pc.crop(pagenumsv, get_crop(argv[4]))
-    pc.scale(None, get_papersize(argv[5]))
+    pc.scale(pagenumsv, get_papersize(argv[5]))
     pc.write()
 
 
