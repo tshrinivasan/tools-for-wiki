@@ -49,7 +49,7 @@ class PreviousPagenoGenerator:
             ppageno = self.get_pageno(nline)
             ppageno = (ppageno - 1) if ppageno > 0 else 0
             if ppageno > 0:
-                pline = pline + "~" + str(ppageno)
+                pline = pline + self.seperator + str(ppageno)
 
             print(pline)
             pline = nline
