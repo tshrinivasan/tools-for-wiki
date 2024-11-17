@@ -16,21 +16,19 @@ if [[ $(basename "${SHELL}") != "bash" ]]; then
 fi
 basedir=$(readlink -f $(dirname $(readlink -f "${BASH_SOURCE[0]}"))/..)
 me=$(basename "${basedir}")
+myvenv="${basedir}/.venv"
 
-export PYTHONUSERBASE="${basedir}/.python"
-export MYVENV="${PYTHONUSERBASE}/${me}-venv"
-export PIP_CACHE_DIR="${PYTHONUSERBASE}/pipcache"
-export PYTHONPATH="${basedir}${PYTHONPATH:+:${PYTHONPATH}}"
-export PATH="${PYTHONUSERBASE}/bin:${PATH}"
-[[ ! -d "${MYVENV}" ]] && {
-    mkdir -p "${PYTHONUSERBASE}"
-    "${python}" -m venv "${MYVENV}"
-    source "${MYVENV}"/bin/activate
+[[ ! -d "${myvenv}" ]] && {
+    "${python}" -m venv "${myvenv}"
+    source "${myvenv}"/bin/activate
+    pip install -U pip
+    pip install uv
     pushd "${basedir}"
-    pip install .
+    uv sync
+    ln -s basedpyright-langserver "${myvenv}"/bin/pyright-langserver
     popd
     deactivate
 }
-source "${MYVENV}"/bin/activate
+source "${myvenv}"/bin/activate
 [[ "${#}" -gt 0 ]] && exec "${@}"
 exec bash --noprofile --norc
