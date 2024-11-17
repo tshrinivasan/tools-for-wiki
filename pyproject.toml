@@ -2,11 +2,14 @@
 name = 'tools-for-wiki'
 description = 'tools for wiki'
 version = '0.0.1'
+readme = "README.md"
+requires-python = ">=3.12"
 dependencies = [
-"pyright",
 "pywikibot",
 "pypdf"
 ]
 
-[tool.setuptools]
-packages = []
+[tool.uv]
+dev-dependencies = [
+    "basedpyright>=1.17.5",
+]
